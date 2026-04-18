@@ -1,4 +1,4 @@
-// src/lib/state/theme.svelte.ts
+import { estimatorState } from '$lib/state/estimator.svelte';
 export type SiteMode = 'saas' | 'local';
 
 class ThemeState {
@@ -55,6 +55,11 @@ class ThemeState {
 	setMode(newMode: SiteMode) {
 		this.mode = newMode;
 		this.updateDocumentClass();
+		
+		// Wipe the estimator canvas clean when shifting realities
+		if (typeof estimatorState !== 'undefined') {
+			estimatorState.reset();
+		}
 	}
 
 	private updateDocumentClass() {
