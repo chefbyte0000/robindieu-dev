@@ -36,6 +36,13 @@
 	--radius: 0.5rem;
 }
 
+/* View Transitions API Configuration for Theme Bleed */
+::view-transition-old(root),
+::view-transition-new(root) {
+	animation: none;
+	mix-blend-mode: normal;
+}
+
 /* LOCAL MODE (Light/Luxury Minimalist) */
 [data-mode='local'] {
 	--background: oklch(0.99 0.01 40);
